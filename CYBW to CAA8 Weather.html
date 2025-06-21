@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Springbank (CYBW) to Invermere (CAA8) Briefing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f7fa; margin: 0; }
+    h1 { text-align: center; margin: 30px 0 10px 0; color: #1a3d5d; }
+    .tab {
+      overflow: hidden;
+      background: #e0e6ef;
+      display: flex;
+      justify-content: center;
+      border-radius: 12px 12px 0 0;
+      margin: 30px auto 0 auto;
+      max-width: 1300px;
+    }
+    .tab button {
+      background: #e0e6ef;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 18px 36px;
+      font-size: 1.15em;
+      color: #1a3d5d;
+      transition: background 0.2s, color 0.2s;
+      border-radius: 12px 12px 0 0;
+      margin: 0 2px;
+    }
+    .tab button.active, .tab button:hover {
+      background: #1a3d5d;
+      color: #fff;
+    }
+    .tabcontent {
+      display: none;
+      padding: 32px 16px;
+      border-radius: 0 0 12px 12px;
+      background: #fff;
+      max-width: 1300px;
+      margin: 0 auto 40px auto;
+      box-shadow: 0 4px 24px rgba(30,60,90,0.11);
+    }
+    .wx-iframe, .wxbrief-iframe {
+      width: 100%;
+      min-height: 800px;
+      margin-bottom: 32px;
+      border: 1px solid #c7d3e0;
+      border-radius: 10px;
+      background: #e8eef3;
+    }
+    .routing-img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 32px auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(30,60,90,0.11);
+    }
+    .webcam-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+    .webcam-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30,60,90,0.11);
+      padding: 18px 18px 10px 18px;
+      width: 1200px;
+      max-width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 12px;
+      transition: box-shadow 0.2s;
+    }
+    .webcam-title {
+      font-size: 1.35em;
+      color: #214a6d;
+      margin-bottom: 12px;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .iframe-wrap {
+      width: 100%;
+      position: relative;
+      padding-bottom: 83.33%; /* 1000/1200 for 1200x1000 aspect ratio */
+      background: #e8eef3;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .iframe-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+      background: #e8eef3;
+    }
+    .webcam-link {
+      display: inline-block;
+      margin: 30px auto 0 auto;
+      padding: 16px 36px;
+      background: #1a3d5d;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 1.1em;
+      text-decoration: none;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(30,60,90,0.10);
+      transition: background 0.2s;
+    }
+    .webcam-link:hover {
+      background: #2d5e8c;
+    }
+    .webcam-note {
+      margin-top:8px;
+      color:#888;
+      font-size:0.95em;
+      text-align:center;
+    }
+    @media (max-width: 1300px) {
+      .webcam-card { width: 98vw; padding: 10px 2vw 10px 2vw; }
+      .tabcontent { padding: 12px 2vw; }
+    }
+    @media (max-width: 900px) {
+      .webcam-title { font-size: 1.1em; }
+      .webcam-card { padding: 8px 0 8px 0; }
+      .iframe-wrap { padding-bottom: 65vw; }
+      .wx-iframe, .wxbrief-iframe { min-height: 500px; }
+    }
+    @media (max-width: 650px) {
+      .webcam-grid { gap: 16px; padding: 6px 2px; }
+      .webcam-card { padding: 4px 0 4px 0; }
+      .webcam-title { font-size: 1em; }
+      .iframe-wrap { padding-bottom: 75vw; }
+      .webcam-link { font-size: 1em; padding: 8px 16px; }
+      .wx-iframe, .wxbrief-iframe { min-height: 350px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Springbank (CYBW) to Invermere (CAA8) Briefing</h1>
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'Routing')" id="defaultOpen">Routing</button>
+    <button class="tablinks" onclick="openTab(event, 'WXBrief')">WX Brief</button>
+    <button class="tablinks" onclick="openTab(event, 'WeatherForecasts')">Weather Forecasts</button>
+    <button class="tablinks" onclick="openTab(event, 'Webcams')">Webcams</button>
+  </div>
+
+  <div id="Routing" class="tabcontent">
+    <h2>Routing</h2>
+    <img class="routing-img" src="https://lh3.googleusercontent.com/pw/AP1GczNmS4sHmNYypEfHQtbHW_oAuozvoXnas9x1fsvpYe4hX8Qowi9nJ-b912yVzQlIpcp34bDAVqbBY5QOEZHBC_yXhL2OHdJSci__E1lgUPoM5YfKvIRhjEHOTWMlukAZvZDc4hEsER-2GQZ-JoSMkuR5dQ=w1400-h973-s-no-gm?authuser=0" alt="Routing Map">
+    <p style="text-align:center; color:#888;">If the image does not display, ensure the Google Photos link is correct and public.</p>
+  </div>
+
+  <div id="WXBrief" class="tabcontent">
+    <h2>WX Brief</h2>
+    <iframe class="wxbrief-iframe" src="https://wxbrief.ca/?point=CYBW%7Csite%7C-114.374%2C51.103&point=CYBA%7Csite%7C-115.534%2C51.200&point=CBL6%7Csite%7C-116.100%2C50.633&point=CAA8%7Csite%7C-116.000%2C50.517&sigmet=true&airmet=true&metar=true&taf=true&gfaWx=true&gfaTurb=true&fdLow=true&pirep=true" title="WX Brief"></iframe>
+  </div>
+
+  <div id="WeatherForecasts" class="tabcontent">
+    <h2>Weather Forecasts</h2>
+    <iframe class="wx-iframe" src="https://weather.gc.ca/en/location/index.html?coords=51.046,-114.057" title="Calgary WX"></iframe>
+    <iframe class="wx-iframe" src="https://weather.gc.ca/en/location/index.html?coords=51.179,-115.569" title="Banff WX"></iframe>
+    <iframe class="wx-iframe" src="https://weather.gc.ca/en/location/index.html?coords=51.295,-116.964" title="Lake Louise WX"></iframe>
+    <iframe class="wx-iframe" src="https://weather.gc.ca/en/location/index.html?coords=50.501,-116.038" title="Invermere WX"></iframe>
+  </div>
+
+  <div id="Webcams" class="tabcontent">
+    <div class="webcam-grid">
+      <div class="webcam-card">
+        <div class="webcam-title">Springbank (CYBW) WX Cam</div>
+        <div class="iframe-wrap">
+          <iframe src="https://www.metcam.navcanada.ca/hb/player.jsp?id=170&cam=392&lang=e" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="webcam-card">
+        <div class="webcam-title">Banff (CBP2) WX Cam</div>
+        <div class="iframe-wrap">
+          <iframe src="https://www.metcam.navcanada.ca/hb/player.jsp?id=188&cam=468&lang=e" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="webcam-card">
+        <div class="webcam-title">Lake Louise Ski Hill Live Cam</div>
+        <div class="iframe-wrap">
+          <iframe src="https://fairmont.roundshot.com/lake-louise/#/" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="webcam-card">
+        <div class="webcam-title">Mount Norquay Ski Hill Live Cams</div>
+        <div class="iframe-wrap">
+          <iframe src="https://banffnorquay.com/winter/conditions-old/webcam/" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="webcam-card">
+        <div class="webcam-title">Sunshine Ski Hill Live Cams</div>
+        <a class="webcam-link" href="https://www.skibanff.com/conditions" target="_blank" rel="noopener">View Sunshine Village Live Cams</a>
+        <div class="webcam-note">(Embedding not supported—opens in new tab)</div>
+      </div>
+      <div class="webcam-card">
+        <div class="webcam-title">Golden (CYGE) WX Cam</div>
+        <div class="iframe-wrap">
+          <iframe src="https://www.metcam.navcanada.ca/hb/player.jsp?id=98&cam=220&lang=e" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="webcam-card">
+        <div class="webcam-title">Kicking Horse Mountain Resort Live Cams</div>
+        <div class="iframe-wrap">
+          <iframe src="https://kickinghorseresort.com/conditions/mountain-cam/" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="webcam-card">
+        <div class="webcam-title">Invermere (CAA8) WX Cam</div>
+        <div class="iframe-wrap">
+          <iframe src="https://www.metcam.navcanada.ca/hb/player.jsp?id=83&cam=184&lang=e" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="webcam-card">
+        <div class="webcam-title">Revelstoke (CYRV) WX Cam</div>
+        <div class="iframe-wrap">
+          <iframe src="https://www.metcam.navcanada.ca/hb/player.jsp?id=118&cam=266&lang=e" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="webcam-card">
+        <div class="webcam-title">Panorama Ski Hill Live Cams</div>
+        <a class="webcam-link" href="https://www.panoramaresort.com/panorama-today/mountain-webcams" target="_blank" rel="noopener">View Panorama Ski Hill Live Cams</a>
+        <div class="webcam-note">(Embedding not supported—opens in new tab)</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    // Open default tab on load
+    document.getElementById("defaultOpen").click();
+  </script>
+</body>
+</html>
